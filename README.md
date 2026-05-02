@@ -1,16 +1,62 @@
-# React + Vite
+# Laksh Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mobile-first, Hinglish-first waitlist landing page for **Laksh** — AI-powered govt form filler for Indian exam aspirants (SSC, Railway, Police, Banking).
 
-Currently, two official plugins are available:
+**Live:** https://laksh.prismaple.com  
+**Repo:** https://github.com/gursewak8427/laksh-landing
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Local development
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deploy to production (laksh.prismaple.com)
 
-## Expanding the ESLint configuration
+Server: Prismonic SSH · Caddy serves `/var/www/laksh/dist`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+# SSH into the server, then:
+cd /var/www/laksh
+git pull
+export NVM_DIR="$HOME/.nvm" && . "$NVM_DIR/nvm.sh" && nvm use 20
+npm install --legacy-peer-deps
+npm run build
+```
+
+Caddy picks up the new `dist/` immediately — no restart needed.
+
+## Stack
+
+- **Vite + React 19** — build tooling
+- **Inline CSS-in-JS** — all styles are inline, no CSS framework
+- **Fonts** — Plus Jakarta Sans (English) + Hind (Hinglish/Devanagari) via Google Fonts
+- **Waitlist** — stored in `localStorage` under `laksh_waitlist` (replace with Supabase/Sheets for production)
+
+## Folder structure
+
+```
+src/
+  components/
+    AutoFillDemo.jsx   animated form auto-fill demo
+    BusUseCase.jsx     "bus mein ho" scenario section
+    ExamsStrip.jsx     scrolling exam name ticker
+    FeaturesSection.jsx
+    FinalCTA.jsx
+    Footer.jsx
+    Hero.jsx
+    Icons.jsx          all SVG icons
+    ProblemSection.jsx
+    StickyBottomBar.jsx
+    TopNav.jsx
+    WaitlistModal.jsx  signup modal (name + phone + exam)
+  constants/
+    copy.js            all page text (Hinglish)
+  App.jsx
+  main.jsx
+  index.css            global styles + keyframe animations
+public/
+  assets/
+    bus-scene.png      hero photo for bus use-case section
+```
