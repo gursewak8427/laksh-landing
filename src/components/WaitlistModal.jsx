@@ -36,6 +36,7 @@ export function WaitlistModal({ open, onClose }) {
   const [exam, setExam] = useState('');
   const [errors, setErrors] = useState({});
   const [count, setCount] = useState(0);
+  const [submitting, setSubmitting] = useState(false);
 
   useEffect(() => {
     if (open) {
@@ -49,8 +50,6 @@ export function WaitlistModal({ open, onClose }) {
   }, [open]);
 
   if (!open) return null;
-
-  const [submitting, setSubmitting] = useState(false);
 
   const submit = async () => {
     const e = {};
