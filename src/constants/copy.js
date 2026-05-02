@@ -6,10 +6,13 @@ export const COPY = {
   sub: 'SSC, Railway, Police, Banking — koi bhi govt form. Profile ek baar save karo, AI khud sahi values fill kar deta hai. Sab kuch end-to-end encrypted, phone pe optimized.',
   cta: 'Free access ke liye sign up karo',
   ctaSmall: 'Sign up karo',
+  waitingCount: 'students already waiting',
   timeBefore: 'Bina Laksh ke',
   timeAfter: 'Laksh ke saath',
   timeBeforeNum: '2 ghante',
   timeAfterNum: '5 minute',
+  demoTitle: 'Aise dikhta hai 👇',
+  demoSub: 'Ek click. AI sab fields khud bhar deta hai.',
   formName: 'SSC CGL Form',
   problemTitle: 'Yeh problem feel hoti hai?',
   problems: [

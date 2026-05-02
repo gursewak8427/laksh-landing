@@ -7,7 +7,9 @@ export function Footer({ copy }) {
         <Icons.Logo s={22} />
         <div style={{ fontSize: 13, fontWeight: 800 }}>Laksh</div>
       </div>
-      <div className="hindi" style={{ fontSize: 11, color: '#9A9DAE' }}>{copy.footer}</div>
+      <div className="hindi" style={{ fontSize: 11, color: '#9A9DAE' }}>
+        {copy.footer}
+      </div>
     </footer>
   );
 }

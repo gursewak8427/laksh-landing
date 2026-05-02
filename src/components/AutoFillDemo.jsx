@@ -54,6 +54,7 @@ export function AutoFillDemo({ formName }) {
       border: '1px solid #EFEEE6',
       boxShadow: '0 24px 50px -16px rgba(14,17,48,.18), 0 6px 16px -8px rgba(14,17,48,.08)',
     }}>
+      {/* Browser bar */}
       <div style={{ display: 'flex', gap: 6, alignItems: 'center', marginBottom: 14, padding: '0 2px' }}>
         <div style={{ width: 7, height: 7, borderRadius: 99, background: '#FF5F57' }} />
         <div style={{ width: 7, height: 7, borderRadius: 99, background: '#FEBC2E' }} />
@@ -90,13 +91,36 @@ export function AutoFillDemo({ formName }) {
               transition: 'all .2s',
             }}>
               <div style={{ fontSize: 10, color: '#7A7E94', fontWeight: 600 }}>{f.l}</div>
-              <div style={{ fontSize: 12, fontWeight: isFilled || isActive ? 700 : 500, color: isFilled || isActive ? '#0E1130' : '#C5C5BC', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 6 }}>
+              <div style={{
+                fontSize: 12,
+                fontWeight: isFilled || isActive ? 700 : 500,
+                color: isFilled || isActive ? '#0E1130' : '#C5C5BC',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                gap: 6,
+              }}>
                 <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                   {isFilled || isActive ? f.v : '—'}
                 </span>
-                {isFilled && <span style={{ flexShrink: 0, color: '#28C96A', display: 'flex' }}><Icons.Check s={13} c="#28C96A" /></span>}
+                {isFilled && (
+                  <span style={{ flexShrink: 0, color: '#28C96A', display: 'flex' }}>
+                    <Icons.Check s={13} c="#28C96A" />
+                  </span>
+                )}
                 {isActive && (
-                  <span style={{ flexShrink: 0, background: '#F26B1F', color: 'white', fontSize: 9, padding: '2px 6px', borderRadius: 5, fontWeight: 800, display: 'inline-flex', gap: 3, alignItems: 'center' }}>
+                  <span style={{
+                    flexShrink: 0,
+                    background: '#F26B1F',
+                    color: 'white',
+                    fontSize: 9,
+                    padding: '2px 6px',
+                    borderRadius: 5,
+                    fontWeight: 800,
+                    display: 'inline-flex',
+                    gap: 3,
+                    alignItems: 'center',
+                  }}>
                     <Icons.Bolt s={9} c="white" /> AI
                   </span>
                 )}
@@ -108,9 +132,17 @@ export function AutoFillDemo({ formName }) {
 
       <div style={{ marginTop: 12, display: 'flex', gap: 8, alignItems: 'center' }}>
         <div style={{ flex: 1, height: 6, background: '#F4F4EE', borderRadius: 99, overflow: 'hidden' }}>
-          <div style={{ width: `${(filled.length / fields.length) * 100}%`, height: '100%', background: 'linear-gradient(90deg, #F26B1F, #FFB67A)', borderRadius: 99, transition: 'width .3s ease' }} />
+          <div style={{
+            width: `${(filled.length / fields.length) * 100}%`,
+            height: '100%',
+            background: 'linear-gradient(90deg, #F26B1F, #FFB67A)',
+            borderRadius: 99,
+            transition: 'width .3s ease',
+          }} />
         </div>
-        <div style={{ fontSize: 11, fontWeight: 700, color: '#0E1130' }}>{filled.length}/{fields.length}</div>
+        <div style={{ fontSize: 11, fontWeight: 700, color: '#0E1130' }}>
+          {filled.length}/{fields.length}
+        </div>
       </div>
 
       <div style={{ marginTop: 10, padding: '8px 10px', background: '#F4F4EE', borderRadius: 10, display: 'flex', gap: 8, alignItems: 'center' }}>
