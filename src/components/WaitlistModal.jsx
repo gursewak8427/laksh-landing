@@ -204,7 +204,7 @@ export function WaitlistModal({ open, onClose }) {
                 transition: 'background .2s',
               }}
             >
-              {submitting ? 'Saving…' : <> Reserve my spot <Icons.ArrowRight s={16} /></>}
+              {submitting ? 'Saving…' : <> Join Waitlist <Icons.ArrowRight s={16} /></>}
             </button>
 
             <div style={{ marginTop: 12, fontSize: 11, color: '#9A9DAE', textAlign: 'center' }}>
