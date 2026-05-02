@@ -10,6 +10,7 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { StickyBottomBar } from './components/StickyBottomBar';
 import { WaitlistModal } from './components/WaitlistModal';
+import { trackPageViewed, trackCtaClicked, trackModalOpened } from './lib/analytics';
 
 function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
@@ -17,6 +18,8 @@ function App() {
   const [showSticky, setShowSticky] = useState(false);
 
   useEffect(() => {
+    trackPageViewed();
+
     try {
       const list = JSON.parse(localStorage.getItem('laksh_waitlist') || '[]');
       setCount(247 + list.length);
@@ -27,21 +30,25 @@ function App() {
     return () => window.removeEventListener('scroll', onScroll);
   }, [waitlistOpen]);
 
-  const open = () => setWaitlistOpen(true);
+  const open = (location = 'unknown') => {
+    trackCtaClicked(location);
+    trackModalOpened();
+    setWaitlistOpen(true);
+  };
 
   return (
     <div className="page">
-      <TopNav count={count} onCTA={open} />
+      <TopNav count={count} onCTA={() => open('nav')} />
       <main>
-        <Hero copy={COPY} onCTA={open} count={count} />
+        <Hero copy={COPY} onCTA={() => open('hero')} count={count} />
         <ProblemSection copy={COPY} />
         <FeaturesSection copy={COPY} />
-        <BusUseCase onCTA={open} />
+        <BusUseCase onCTA={() => open('bus_usecase')} />
         <ExamsStrip copy={COPY} />
-        <FinalCTA copy={COPY} onCTA={open} count={count} />
+        <FinalCTA copy={COPY} onCTA={() => open('final_cta')} count={count} />
       </main>
       <Footer copy={COPY} />
-      <StickyBottomBar copy={COPY} onCTA={open} visible={showSticky && !waitlistOpen} />
+      <StickyBottomBar copy={COPY} onCTA={() => open('sticky_bar')} visible={showSticky && !waitlistOpen} />
       <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );

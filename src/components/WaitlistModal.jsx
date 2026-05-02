@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Icons } from './Icons';
 import { supabase } from '../lib/supabase';
+import { identifyUser, trackWaitlistSubmitted, trackWaitlistError } from '../lib/analytics';
 
 function inputStyle(hasError) {
   return {
@@ -72,7 +73,13 @@ export function WaitlistModal({ open, onClose }) {
       setCount(list.length);
     } catch (_) {}
 
-    if (error) console.error('Supabase insert error:', error.message);
+    if (error) {
+      console.error('Supabase insert error:', error.message);
+      trackWaitlistError(error.message);
+    } else {
+      identifyUser(entry.phone, entry.name, entry.exam);
+      trackWaitlistSubmitted(entry.name, entry.exam);
+    }
 
     setSubmitting(false);
     setStep('success');
