@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Icons } from './Icons';
+import { supabase } from '../lib/supabase';
 
 function inputStyle(hasError) {
   return {
@@ -49,7 +50,9 @@ export function WaitlistModal({ open, onClose }) {
 
   if (!open) return null;
 
-  const submit = () => {
+  const [submitting, setSubmitting] = useState(false);
+
+  const submit = async () => {
     const e = {};
     if (!name.trim() || name.trim().length < 2) e.name = 'Please enter your name';
     if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ''))) e.phone = 'Enter a valid 10-digit mobile';
@@ -57,12 +60,22 @@ export function WaitlistModal({ open, onClose }) {
     setErrors(e);
     if (Object.keys(e).length) return;
 
+    setSubmitting(true);
+    const entry = { name: name.trim(), phone: phone.replace(/\D/g, ''), exam };
+
+    const { error } = await supabase.from('waitlist').insert(entry);
+
+    // Always persist locally as backup regardless of Supabase result
     try {
       const list = JSON.parse(localStorage.getItem('laksh_waitlist') || '[]');
-      list.push({ name: name.trim(), phone: phone.replace(/\D/g, ''), exam, ts: Date.now() });
+      list.push({ ...entry, ts: Date.now() });
       localStorage.setItem('laksh_waitlist', JSON.stringify(list));
       setCount(list.length);
-    } catch (err) {}
+    } catch (_) {}
+
+    if (error) console.error('Supabase insert error:', error.message);
+
+    setSubmitting(false);
     setStep('success');
   };
 
@@ -181,16 +194,18 @@ export function WaitlistModal({ open, onClose }) {
                 padding: '14px 18px',
                 fontSize: 15,
                 fontWeight: 700,
-                cursor: 'pointer',
+                cursor: submitting ? 'default' : 'pointer',
                 fontFamily: 'inherit',
+                background: submitting ? '#F59B6A' : '#F26B1F',
                 boxShadow: '0 8px 20px -6px rgba(242,107,31,.5)',
                 display: 'flex',
                 gap: 8,
                 alignItems: 'center',
                 justifyContent: 'center',
+                transition: 'background .2s',
               }}
             >
-              Reserve my spot <Icons.ArrowRight s={16} />
+              {submitting ? 'Saving…' : <> Reserve my spot <Icons.ArrowRight s={16} /></>}
             </button>
 
             <div style={{ marginTop: 12, fontSize: 11, color: '#9A9DAE', textAlign: 'center' }}>
