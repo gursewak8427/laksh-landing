@@ -86,18 +86,18 @@ export function Hero({ copy, onCTA, count }) {
 
       {/* Inline CTA */}
       <button onClick={onCTA} className="hindi" style={{
-        marginTop: 22,
+        marginTop: 24,
         width: '100%',
-        background: '#F26B1F',
+        background: '#0E1130',
         color: 'white',
         border: 'none',
         borderRadius: 14,
-        padding: '16px 18px',
-        fontSize: 16,
+        padding: '17px 18px',
+        fontSize: 17,
         fontWeight: 800,
         cursor: 'pointer',
-        boxShadow: '0 10px 24px -6px rgba(242,107,31,.5)',
-        animation: 'pulse 2.4s ease-in-out infinite',
+        letterSpacing: '-.01em',
+        boxShadow: '0 10px 28px -6px rgba(14,17,48,.35)',
         display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8,
       }}>
         {copy.cta} <Icons.ArrowRight s={18} />
