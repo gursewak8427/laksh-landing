@@ -1,30 +1,17 @@
 import { Icons } from './Icons';
 
 export function StickyBottomBar({ copy, onCTA, visible }) {
-  if (!visible) return null;
   return (
     <div style={{
-      position: 'sticky',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      background: 'linear-gradient(to top, #FAFAF7 70%, rgba(250,250,247,0))',
-      padding: '20px 16px max(20px, env(safe-area-inset-bottom))',
-      zIndex: 40,
+      position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 40,
+      display: 'flex', justifyContent: 'center',
+      padding: '18px 18px max(18px, env(safe-area-inset-bottom))',
+      background: 'linear-gradient(to top, var(--paper) 62%, rgba(251,250,246,0))',
+      transform: visible ? 'translateY(0)' : 'translateY(120%)',
+      transition: 'transform .35s cubic-bezier(.2,.8,.3,1)',
+      pointerEvents: visible ? 'auto' : 'none',
     }}>
-      <button onClick={onCTA} className="hindi" style={{
-        width: '100%',
-        background: '#F26B1F',
-        color: 'white',
-        border: 'none',
-        borderRadius: 14,
-        padding: '15px 18px',
-        fontSize: 15,
-        fontWeight: 800,
-        cursor: 'pointer',
-        display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8,
-        boxShadow: '0 10px 30px -6px rgba(242,107,31,.6)',
-      }}>
+      <button onClick={onCTA} className="btn btn-primary hindi" style={{ maxWidth: 'var(--wrap)', fontSize: 15 }}>
         {copy.cta} <Icons.ArrowRight s={16} />
       </button>
     </div>

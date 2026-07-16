@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!--
+  Open Graph share card — 1200 x 630.
+  To generate og-image.jpg:
+    1. Open this file in a browser at exactly 1200x630 (or use the local dev server: /og.html)
+    2. Screenshot the .card element (or full viewport) → save as public/og-image.jpg
+  A quick way: open dev server, run in devtools console:
+    document.querySelector('.card').scrollIntoView()
+  then use a full-page 1200x630 screenshot tool, or Puppeteer.
+-->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700;800&family=Hind:wght@600;700&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { display:grid; place-items:center; background:#333; font-family:'Plus Jakarta Sans',sans-serif; }
+  .card {
+    width:1200px; height:630px; position:relative; overflow:hidden;
+    background:
+      radial-gradient(700px 500px at 100% 0%, rgba(242,107,31,.18), transparent 60%),
+      radial-gradient(600px 460px at 0% 100%, rgba(122,90,248,.14), transparent 60%),
+      #FBFAF6;
+    padding:72px 80px; display:flex; flex-direction:column; justify-content:space-between;
+  }
+  .top { display:flex; align-items:center; gap:16px; }
+  .logo { width:64px; height:64px; border-radius:18px; background:linear-gradient(135deg,#F26B1F,#FF8C42); display:grid; place-items:center; color:#fff; font-weight:800; font-size:34px; box-shadow:0 14px 30px -8px rgba(242,107,31,.5); }
+  .brand { font-size:34px; font-weight:800; color:#10132E; letter-spacing:-.02em; }
+  .badge { margin-left:auto; background:#FFF1E6; color:#C24600; font-weight:800; font-size:20px; padding:10px 20px; border-radius:99px; letter-spacing:.04em; }
+  h1 { font-family:'Hind',sans-serif; font-size:76px; font-weight:700; color:#10132E; letter-spacing:-.02em; line-height:1.08; }
+  h1 .strike { color:#E23B3B; text-decoration:line-through; text-decoration-thickness:5px; }
+  h1 .hl { color:#C24600; position:relative; }
+  h1 .hl::after { content:''; position:absolute; left:-4px; right:-6px; bottom:6px; height:26%; background:rgba(242,107,31,.28); border-radius:6px; z-index:-1; }
+  .sub { font-family:'Hind',sans-serif; font-size:30px; color:#565A76; font-weight:600; margin-top:8px; }
+  .row { display:flex; align-items:center; gap:14px; }
+  .chip { background:#fff; border:1px solid #ECEAE0; border-radius:99px; padding:12px 22px; font-size:22px; font-weight:700; color:#10132E; box-shadow:0 6px 16px -8px rgba(16,19,46,.18); }
+  .cta { background:linear-gradient(135deg,#F26B1F,#FF8C42); color:#fff; font-size:24px; font-weight:800; padding:16px 30px; border-radius:16px; box-shadow:0 14px 30px -8px rgba(242,107,31,.5); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="logo">L</div>
+      <div class="brand">Laksh</div>
+      <div class="badge">EARLY ACCESS · FREE</div>
+    </div>
+
+    <div>
+      <h1>Govt form bharne mein <span class="strike">2 ghante</span><br/>ab sirf <span class="hl">5 minute</span>. 🚀</h1>
+      <div class="sub">Profile ek baar banao — AI ek click mein form bhar deta hai. Phone pe, encrypted.</div>
+    </div>
+
+    <div class="row">
+      <div class="chip">SSC</div>
+      <div class="chip">Railway</div>
+      <div class="chip">Police</div>
+      <div class="chip">Banking</div>
+      <div class="cta" style="margin-left:auto;">laksh.prismaple.com</div>
+    </div>
+  </div>
+</body>
+</html>

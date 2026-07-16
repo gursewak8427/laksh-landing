@@ -2,14 +2,12 @@ import { Icons } from './Icons';
 
 export function Footer({ copy }) {
   return (
-    <footer style={{ padding: '20px 16px 32px', textAlign: 'center' }}>
-      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+    <footer style={{ padding: '18px 18px 30px', textAlign: 'center' }}>
+      <div style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
         <Icons.Logo s={22} />
-        <div style={{ fontSize: 13, fontWeight: 800 }}>Laksh</div>
+        <div style={{ fontSize: 14, fontWeight: 800 }}>Laksh</div>
       </div>
-      <div className="hindi" style={{ fontSize: 11, color: '#9A9DAE' }}>
-        {copy.footer}
-      </div>
+      <div className="hindi" style={{ fontSize: 11.5, color: 'var(--ink-faint)' }}>{copy.footer}</div>
     </footer>
   );
 }

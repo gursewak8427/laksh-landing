@@ -3,127 +3,78 @@ import { AutoFillDemo } from './AutoFillDemo';
 
 export function Hero({ copy, onCTA, count }) {
   return (
-    <section style={{ padding: '20px 16px 8px', position: 'relative' }}>
+    <section style={{ padding: '22px 18px 8px' }}>
       {/* Badge */}
-      <div className="hindi" style={{
-        display: 'inline-flex', alignItems: 'center', gap: 6,
-        background: 'white', border: '1px solid #EFEEE6',
-        padding: '6px 12px 6px 6px', borderRadius: 99,
-        fontSize: 11, fontWeight: 700, color: '#0E1130',
+      <div className="hindi pill" style={{
+        background: 'var(--card)', border: '1px solid var(--line)',
+        padding: '6px 12px 6px 6px', fontSize: 11, fontWeight: 700, color: 'var(--ink)',
+        boxShadow: 'var(--sh-sm)',
       }}>
-        <span style={{ background: '#FFF1E6', color: '#C24600', padding: '3px 8px', borderRadius: 99, fontSize: 9, fontWeight: 800, letterSpacing: .5 }}>NEW</span>
+        <span style={{ background: 'var(--saffron-tint)', color: 'var(--saffron-deep)', padding: '3px 8px', borderRadius: 99, fontSize: 9, fontWeight: 800, letterSpacing: .5 }}>NEW</span>
         {copy.badge}
       </div>
 
-      <h1 style={{
-        fontSize: 38,
-        fontWeight: 800,
-        letterSpacing: '-.03em',
-        lineHeight: 1.05,
-        margin: '14px 0 0',
-      }}>
-        <span className="hindi" style={{ color: '#0E1130' }}>{copy.h1a}</span>
-        <br />
-        <span className="hindi" style={{ position: 'relative', display: 'inline-block', whiteSpace: 'nowrap' }}>
-          <span style={{ position: 'relative', zIndex: 2, color: '#D93B3B', textDecoration: 'line-through', textDecorationThickness: 2 }}>{copy.h1b}</span>
+      {/* Headline */}
+      <h1 className="hindi" style={{ fontSize: 40, fontWeight: 800, letterSpacing: '-.03em', lineHeight: 1.04, margin: '16px 0 0' }}>
+        <span style={{ color: 'var(--ink)' }}>{copy.h1a}</span>{' '}
+        <span style={{ position: 'relative', whiteSpace: 'nowrap' }}>
+          <span style={{ color: 'var(--red)', textDecoration: 'line-through', textDecorationThickness: 3 }}>{copy.h1strike}</span>
         </span>
         <br />
-        <span className="hindi" style={{ position: 'relative', display: 'inline-block', whiteSpace: 'nowrap' }}>
-          <span style={{ position: 'relative', zIndex: 2, color: '#0E1130' }}>{copy.h1c}</span>
+        <span style={{ color: 'var(--ink)' }}>{copy.h1b}</span>{' '}
+        <span style={{ position: 'relative', display: 'inline-block', whiteSpace: 'nowrap' }}>
+          <span style={{ position: 'relative', zIndex: 2, color: 'var(--saffron-deep)' }}>{copy.h1accent}</span>
           <span aria-hidden style={{
-            position: 'absolute', left: -2, right: -4, bottom: '6%',
-            height: '24%', background: 'rgba(242,107,31,.32)',
-            borderRadius: 4, zIndex: 1,
+            position: 'absolute', left: -3, right: -5, bottom: '4%',
+            height: '30%', background: 'rgba(242,107,31,.28)', borderRadius: 4, zIndex: 1,
           }} />
         </span>
       </h1>
 
-      <p className="hindi" style={{
-        fontSize: 16, color: '#5C6075', lineHeight: 1.55,
-        margin: '14px 0 0', textWrap: 'pretty',
-      }}>
+      <p className="hindi" style={{ fontSize: 16, color: 'var(--ink-soft)', lineHeight: 1.55, margin: '14px 0 0' }}>
         {copy.sub}
       </p>
 
-      <div style={{ marginTop: 22 }}>
-        <AutoFillDemo formName={copy.formName} />
-      </div>
-
-      {/* Time comparison */}
-      <div style={{ marginTop: 18, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
-        <div style={{
-          background: 'white',
-          border: '1.5px solid #FFE0E0',
-          borderRadius: 16,
-          padding: '14px 14px',
-        }}>
-          <div className="hindi" style={{ fontSize: 10, fontWeight: 800, color: '#D93B3B', letterSpacing: .8 }}>{copy.timeBefore.toUpperCase()}</div>
-          <div className="hindi" style={{ fontSize: 22, fontWeight: 800, marginTop: 6, lineHeight: 1, textDecoration: 'line-through', textDecorationColor: '#D93B3B', textDecorationThickness: 2 }}>
-            {copy.timeBeforeNum}
-          </div>
-          <div style={{ fontSize: 10, color: '#7A7E94', marginTop: 6, lineHeight: 1.4 }}>
-            Type karte raho… 😩
-          </div>
-        </div>
-        <div style={{
-          background: 'linear-gradient(135deg, #F26B1F, #FF8C42)',
-          color: 'white',
-          borderRadius: 16,
-          padding: '14px 14px',
-          boxShadow: '0 14px 32px -10px rgba(242,107,31,.55)',
-        }}>
-          <div className="hindi" style={{ fontSize: 10, fontWeight: 800, letterSpacing: .8, display: 'inline-flex', gap: 4, alignItems: 'center' }}>
-            <Icons.Bolt s={10} c="white" /> {copy.timeAfter.toUpperCase()}
-          </div>
-          <div className="hindi" style={{ fontSize: 22, fontWeight: 800, marginTop: 6, lineHeight: 1 }}>
-            {copy.timeAfterNum}
-          </div>
-          <div style={{ fontSize: 10, marginTop: 6, lineHeight: 1.4, opacity: .92 }}>
-            1 click → AI fills sab ⚡
-          </div>
-        </div>
-      </div>
-
-      {/* Inline CTA */}
-      <button onClick={onCTA} className="hindi" style={{
-        marginTop: 24,
-        width: '100%',
-        background: '#0E1130',
-        color: 'white',
-        border: 'none',
-        borderRadius: 14,
-        padding: '17px 18px',
-        fontSize: 17,
-        fontWeight: 800,
-        cursor: 'pointer',
-        letterSpacing: '-.01em',
-        boxShadow: '0 10px 28px -6px rgba(14,17,48,.35)',
-        display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 8,
-      }}>
+      {/* PRIMARY CTA — above the fold */}
+      <button onClick={onCTA} className="btn btn-primary hindi" style={{ marginTop: 20, fontSize: 17 }}>
         {copy.cta} <Icons.ArrowRight s={18} />
       </button>
+      <div className="hindi" style={{ marginTop: 9, textAlign: 'center', fontSize: 12, color: 'var(--ink-soft)', display: 'flex', gap: 6, justifyContent: 'center', alignItems: 'center' }}>
+        <Icons.WhatsApp s={13} c="#25D366" /> {copy.ctaSub}
+      </div>
 
-      <div style={{
-        marginTop: 12,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: 8,
-        fontSize: 12,
-        color: '#5C6075',
-      }}>
+      {/* Social proof row */}
+      <div style={{ marginTop: 14, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, fontSize: 12, color: 'var(--ink-soft)' }}>
         <div style={{ display: 'flex' }}>
           {['#FFB67A', '#9C5BF5', '#28C96A', '#3A7AFE'].map((c, i) => (
             <div key={i} style={{
-              width: 22, height: 22, borderRadius: 99,
-              background: c, border: '2px solid white',
-              marginLeft: i === 0 ? 0 : -8,
-              fontSize: 9, color: 'white', fontWeight: 800,
-              display: 'grid', placeItems: 'center',
+              width: 24, height: 24, borderRadius: 99, background: c, border: '2px solid var(--paper)',
+              marginLeft: i === 0 ? 0 : -9, fontSize: 10, color: '#fff', fontWeight: 800, display: 'grid', placeItems: 'center',
             }}>{['R', 'P', 'A', 'S'][i]}</div>
           ))}
         </div>
-        <span><strong style={{ color: '#0E1130' }}>{count}+ students</strong> already waiting</span>
+        <span><strong style={{ color: 'var(--ink)' }}>{count}+ students</strong> {copy.waitingCount}</span>
+      </div>
+
+      {/* Product demo */}
+      <div style={{ marginTop: 22 }}>
+        <AutoFillDemo formName="SSC CGL Form" />
+      </div>
+
+      {/* Time comparison */}
+      <div style={{ marginTop: 16, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10 }}>
+        <div style={{ background: 'var(--card)', border: '1.5px solid #FCDCDC', borderRadius: 'var(--r-lg)', padding: 14 }}>
+          <div className="hindi eyebrow" style={{ color: 'var(--red)' }}>{copy.timeBefore}</div>
+          <div className="hindi" style={{ fontSize: 22, fontWeight: 800, marginTop: 6, lineHeight: 1, textDecoration: 'line-through', textDecorationColor: 'var(--red)', textDecorationThickness: 2 }}>{copy.timeBeforeNum}</div>
+          <div style={{ fontSize: 11, color: 'var(--ink-faint)', marginTop: 6 }}>{copy.timeBeforeSub}</div>
+        </div>
+        <div style={{ background: 'linear-gradient(135deg, var(--saffron), var(--saffron-2))', color: '#fff', borderRadius: 'var(--r-lg)', padding: 14, boxShadow: 'var(--sh-saffron)' }}>
+          <div className="hindi eyebrow" style={{ color: '#fff', display: 'inline-flex', gap: 4, alignItems: 'center' }}>
+            <Icons.Bolt s={10} c="#fff" /> {copy.timeAfter}
+          </div>
+          <div className="hindi" style={{ fontSize: 22, fontWeight: 800, marginTop: 6, lineHeight: 1 }}>{copy.timeAfterNum}</div>
+          <div style={{ fontSize: 11, marginTop: 6, opacity: .92 }}>{copy.timeAfterSub}</div>
+        </div>
       </div>
     </section>
   );
