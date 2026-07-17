@@ -1,6 +1,6 @@
 import { Icons } from './Icons';
 
-const busScene = '/assets/bus-scene.png';
+const busScene = '/assets/bus-scene.jpg';
 
 export function BusUseCase({ onCTA }) {
   return (
@@ -23,7 +23,7 @@ export function BusUseCase({ onCTA }) {
           </h2>
 
           <div style={{ margin: '20px -4px 6px', position: 'relative', borderRadius: 'var(--r-lg)', overflow: 'hidden', aspectRatio: '9 / 12', boxShadow: '0 24px 60px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06) inset' }}>
-            <img src={busScene} alt="Student filling SSC form on phone in a moving bus" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            <img src={busScene} alt="Student filling SSC form on phone in a moving bus" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(16,19,46,.18) 0%, transparent 25%, transparent 70%, rgba(16,19,46,.5) 100%)' }} />
           </div>
 

@@ -39,7 +39,7 @@ export function WelcomeDialog({ open, count, onJoin, onClose }) {
             width: 60, height: 60, margin: '4px auto 0', borderRadius: 18, background: '#fff',
             display: 'grid', placeItems: 'center', boxShadow: '0 10px 26px -8px rgba(16,19,46,.25)',
           }}>
-            <img src="/logo.png" alt="Laksh" width={44} height={44} style={{ display: 'block' }} />
+            <img src="/logo-sm.png" alt="Laksh" width={44} height={44} style={{ display: 'block' }} />
           </div>
 
           <div className="pill" style={{

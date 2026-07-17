@@ -5,7 +5,7 @@ export const COPY = {
   h1strike: '2 hours',
   h1b: 'now just',
   h1accent: '5 minutes',
-  sub: 'SSC, Railway, Police, Banking — any government form. Build your profile once, and AI fills in the right values in one click. All on your phone, end-to-end encrypted.',
+  sub: 'Think of it like autofill — but for government exam forms. SSC, Railway, Police, Banking: build your profile once, and AI fills every field in one click. All on your phone, end-to-end encrypted.',
   cta: 'Join the Waitlist',
   ctaSub: 'Free early access · Link on WhatsApp',
   waitingCount: 'students already waiting',

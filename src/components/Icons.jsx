@@ -52,6 +52,6 @@ export const Icons = {
     </svg>
   ),
   Logo: ({ s = 36 }) => (
-    <img src="/logo.png" alt="Laksh" width={s} height={s} style={{ display: 'block', objectFit: 'contain' }} />
+    <img src="/logo-sm.png" alt="Laksh" width={s} height={s} style={{ display: 'block', objectFit: 'contain' }} />
   ),
 };
