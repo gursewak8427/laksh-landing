@@ -48,13 +48,11 @@ export function trackWaitlistError(message) {
 
 // ── identify: call after successful signup ────────────────────────────────────
 // phone is the stable ID (unique per user).
-// alias() links the anonymous distinct_id → phone so all prior anonymous
-// events merge onto the identified profile.
+// Laksh uses Mixpanel Simplified ID Merge: call identify() directly — Mixpanel
+// auto-merges the anonymous ($device:) id onto the identified profile.
+// Do NOT call alias() in Simplified ID Merge (it breaks identify).
 export function identifyUser(phone, name, exam) {
   const userId = `+91${phone}`;
-
-  // alias merges the anonymous session into the identified user (call once)
-  try { mixpanel.alias(userId); } catch (_) {}
 
   mixpanel.identify(userId);
 
