@@ -13,10 +13,12 @@ import { FinalCTA } from './components/FinalCTA';
 import { Footer } from './components/Footer';
 import { StickyBottomBar } from './components/StickyBottomBar';
 import { WaitlistModal, WAITLIST_BASE } from './components/WaitlistModal';
-import { trackPageViewed, trackCtaClicked, trackModalOpened } from './lib/analytics';
+import { WelcomeDialog } from './components/WelcomeDialog';
+import { trackPageViewed, trackCtaClicked, trackModalOpened, trackWelcomeShown, trackWelcomeAction } from './lib/analytics';
 
 function App() {
   const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [welcomeOpen, setWelcomeOpen] = useState(false);
   const [count, setCount] = useState(WAITLIST_BASE);
   const [showSticky, setShowSticky] = useState(false);
 
@@ -31,6 +33,29 @@ function App() {
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, [waitlistOpen]);
+
+  // Motivational welcome dialog — once per visitor, shortly after arrival
+  useEffect(() => {
+    let seen = false;
+    try {
+      seen = localStorage.getItem('laksh_welcome_seen') === '1' ||
+             JSON.parse(localStorage.getItem('laksh_waitlist') || '[]').length > 0;
+    } catch { /* ignore */ }
+    if (seen) return;
+    const t = setTimeout(() => {
+      setWelcomeOpen(true);
+      trackWelcomeShown();
+      try { localStorage.setItem('laksh_welcome_seen', '1'); } catch { /* ignore */ }
+    }, 900);
+    return () => clearTimeout(t);
+  }, []);
+
+  const closeWelcome = () => { trackWelcomeAction('dismiss'); setWelcomeOpen(false); };
+  const welcomeJoin = () => {
+    trackWelcomeAction('cta');
+    setWelcomeOpen(false);
+    open('welcome_dialog');
+  };
 
   // Scroll-reveal
   useEffect(() => {
@@ -65,7 +90,8 @@ function App() {
         <FinalCTA copy={COPY} onCTA={() => open('final_cta')} count={count} />
         <Footer copy={COPY} />
       </main>
-      <StickyBottomBar copy={COPY} onCTA={() => open('sticky_bar')} visible={showSticky && !waitlistOpen} />
+      <StickyBottomBar copy={COPY} onCTA={() => open('sticky_bar')} visible={showSticky && !waitlistOpen && !welcomeOpen} />
+      <WelcomeDialog open={welcomeOpen} count={count} onJoin={welcomeJoin} onClose={closeWelcome} />
       <WaitlistModal open={waitlistOpen} onClose={() => setWaitlistOpen(false)} />
     </div>
   );

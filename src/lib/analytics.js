@@ -24,6 +24,15 @@ export function trackModalOpened() {
   mixpanel.track('laksh_waitlist_modal_opened');
 }
 
+export function trackWelcomeShown() {
+  mixpanel.track('laksh_welcome_shown');
+}
+
+export function trackWelcomeAction(action) {
+  // action: 'cta' | 'dismiss'
+  mixpanel.track('laksh_welcome_action', { action });
+}
+
 export function trackWaitlistSubmitted(name, exam) {
   mixpanel.track('laksh_waitlist_submitted', { name, exam });
 }
