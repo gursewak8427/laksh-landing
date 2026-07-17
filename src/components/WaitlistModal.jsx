@@ -75,10 +75,13 @@ export function WaitlistModal({ open, onClose }) {
     if (error) {
       console.error('Supabase insert error:', error.message);
       trackWaitlistError(error.message);
-    } else {
-      identifyUser(entry.phone, entry.name, entry.exam);
-      trackWaitlistSubmitted(entry.name, entry.exam);
     }
+
+    // Fire signup tracking regardless of the Supabase result — the user completed
+    // the form (local backup is saved). Otherwise a Supabase outage silently skips
+    // Mixpanel identify + the conversion event.
+    identifyUser(entry.phone, entry.name, entry.exam);
+    trackWaitlistSubmitted(entry.name, entry.exam);
 
     // Meta Pixel — waitlist signup conversion
     try {
