@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Icons } from './Icons';
 
 const fields = [
-  { l: 'Naam', v: 'Rohan Kumar Singh' },
+  { l: 'Name', v: 'Rohan Kumar Singh' },
   { l: "Father's Name", v: 'Rajesh Kumar Singh' },
   { l: 'Date of Birth', v: '14 / 08 / 2002' },
   { l: 'Aadhaar', v: '4521 8867 9034' },

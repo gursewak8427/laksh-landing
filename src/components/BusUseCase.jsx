@@ -19,7 +19,7 @@ export function BusUseCase({ onCTA }) {
           </div>
 
           <h2 className="hindi" style={{ fontSize: 25, fontWeight: 800, letterSpacing: '-.02em', lineHeight: 1.18, margin: '14px 0 0' }}>
-            Bus mein ho. Form ki<br />last date <span style={{ color: '#FFB67A' }}>aaj raat hai.</span>
+            You’re on a bus. The form’s<br />last date is <span style={{ color: '#FFB67A' }}>tonight.</span>
           </h2>
 
           <div style={{ margin: '20px -4px 6px', position: 'relative', borderRadius: 'var(--r-lg)', overflow: 'hidden', aspectRatio: '9 / 12', boxShadow: '0 24px 60px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.06) inset' }}>
@@ -28,11 +28,11 @@ export function BusUseCase({ onCTA }) {
           </div>
 
           <p className="hindi" style={{ fontSize: 14, color: 'rgba(255,255,255,.8)', lineHeight: 1.55, margin: 0 }}>
-            Laptop ka wait karoge? Cyber cafe dhundhoge? <strong style={{ color: '#fff' }}>Bilkul nahi.</strong> Phone nikalo, Laksh kholo, ek click — form bhar gaya. Bus se utarte hi confirmation aa jayega.
+            Wait for a laptop? Hunt for a cyber cafe? <strong style={{ color: '#fff' }}>No need.</strong> Pull out your phone, open Laksh, one click — the form’s done. You’ll have the confirmation before you step off the bus.
           </p>
 
           <button onClick={onCTA} className="btn btn-primary hindi" style={{ marginTop: 18, fontSize: 15 }}>
-            Mujhe bhi chahiye <Icons.ArrowRight s={16} />
+            I want this too <Icons.ArrowRight s={16} />
           </button>
         </div>
       </div>

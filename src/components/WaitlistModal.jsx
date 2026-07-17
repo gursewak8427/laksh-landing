@@ -53,9 +53,9 @@ export function WaitlistModal({ open, onClose }) {
 
   const submit = async () => {
     const e = {};
-    if (!name.trim() || name.trim().length < 2) e.name = 'Apna naam likho';
-    if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ''))) e.phone = 'Valid 10-digit mobile daalo';
-    if (!exam) e.exam = 'Ek exam chuno';
+    if (!name.trim() || name.trim().length < 2) e.name = 'Please enter your name';
+    if (!/^[6-9]\d{9}$/.test(phone.replace(/\D/g, ''))) e.phone = 'Enter a valid 10-digit mobile number';
+    if (!exam) e.exam = 'Pick one';
     setErrors(e);
     if (Object.keys(e).length) return;
 
@@ -107,25 +107,25 @@ export function WaitlistModal({ open, onClose }) {
               <Icons.Sparkle s={12} c="var(--saffron)" /> EARLY ACCESS
             </div>
             <h2 className="hindi" style={{ fontSize: 25, fontWeight: 800, color: 'var(--ink)', margin: '12px 0 6px', letterSpacing: '-.02em', lineHeight: 1.15 }}>
-              Laksh waitlist join karo
+              Join the Laksh waitlist
             </h2>
             <p className="hindi" style={{ fontSize: 14, color: 'var(--ink-soft)', margin: 0, lineHeight: 1.5 }}>
-              Launch hote hi WhatsApp pe link milega — no spam, kabhi nahi.
+              The moment we launch, you’ll get the link on WhatsApp — no spam, ever.
             </p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: 14, marginTop: 20 }}>
-              <Field label="Tumhara naam" error={errors.name}>
+              <Field label="Your name" error={errors.name}>
                 <input type="text" placeholder="Rohan Kumar" value={name} onChange={(e) => setName(e.target.value)} style={inputStyle(errors.name)} className="hindi" />
               </Field>
 
-              <Field label="Mobile number" error={errors.phone} hint="Launch link isi number pe WhatsApp hoga">
+              <Field label="Mobile number" error={errors.phone} hint="We’ll WhatsApp the launch link to this number">
                 <div style={{ display: 'flex', gap: 8 }}>
                   <div style={{ ...inputStyle(false), width: 62, display: 'grid', placeItems: 'center', background: 'var(--paper-2)', fontWeight: 700 }}>+91</div>
                   <input type="tel" inputMode="numeric" placeholder="98XXXXXXXX" maxLength="10" value={phone} onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))} style={{ ...inputStyle(errors.phone), flex: 1 }} />
                 </div>
               </Field>
 
-              <Field label="Kaunsi exam ki tayari?" error={errors.exam}>
+              <Field label="Which exam are you preparing for?" error={errors.exam}>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                   {EXAMS.map((x) => (
                     <button key={x} type="button" onClick={() => setExam(x)} className="hindi" style={{
@@ -143,7 +143,7 @@ export function WaitlistModal({ open, onClose }) {
               {submitting ? 'Saving…' : <>Join Waitlist <Icons.ArrowRight s={16} /></>}
             </button>
             <div className="hindi" style={{ marginTop: 10, fontSize: 11, color: 'var(--ink-faint)', textAlign: 'center' }}>
-              Join karke tum launch link WhatsApp pe receive karne ke liye agree karte ho.
+              By joining, you agree to receive the launch link on WhatsApp.
             </div>
           </>
         )}
@@ -155,12 +155,12 @@ export function WaitlistModal({ open, onClose }) {
             </div>
             <h2 className="hindi" style={{ fontSize: 25, fontWeight: 800, color: 'var(--ink)', margin: '0 0 8px', letterSpacing: '-.02em' }}>You're on the list! 🎉</h2>
             <p className="hindi" style={{ fontSize: 14, color: 'var(--ink-soft)', margin: '0 auto', maxWidth: 340, lineHeight: 1.5 }}>
-              Launch hote hi <strong style={{ color: 'var(--ink)' }}>+91 {phone}</strong> pe link bhej denge. Tum waitlist par #{WAITLIST_BASE + count} pe ho.
+              We’ll send the link to <strong style={{ color: 'var(--ink)' }}>+91 {phone}</strong> the moment Laksh launches. You’re #{WAITLIST_BASE + count} on the waitlist.
             </p>
             <div style={{ marginTop: 20, padding: '14px 16px', background: 'var(--card)', border: '1px solid var(--line)', borderRadius: 14, textAlign: 'left' }}>
-              <div className="hindi" style={{ fontSize: 11, fontWeight: 800, color: 'var(--ink-soft)', letterSpacing: .4 }}>JAB TAK WAIT KARO</div>
+              <div className="hindi" style={{ fontSize: 11, fontWeight: 800, color: 'var(--ink-soft)', letterSpacing: .4 }}>WHILE YOU WAIT</div>
               <div className="hindi" style={{ fontSize: 13, color: 'var(--ink)', marginTop: 6, lineHeight: 1.5 }}>
-                Kisi dost ko batao jo forms bharne se pareshaan hai. Laksh WhatsApp pe forward karo — woh baad mein thank you bolega.
+                Tell a friend who’s also tired of filling forms. Forward Laksh on WhatsApp — they’ll thank you later.
               </div>
             </div>
             <button onClick={onClose} className="btn btn-dark hindi" style={{ marginTop: 16 }}>Done</button>

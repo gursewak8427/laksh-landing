@@ -1,70 +1,70 @@
 export const COPY = {
   // ── Hero ──
-  badge: 'AI form filler · Phone pe',
-  h1a: 'Govt form bharne mein',
-  h1strike: '2 ghante',
-  h1b: 'ab sirf',
-  h1accent: '5 minute',
-  sub: 'SSC, Railway, Police, Banking — koi bhi government form. Profile ek baar banao, AI khud sahi values bhar deta hai. Sab kuch phone pe, end-to-end encrypted.',
-  cta: 'Waitlist Join Karo',
-  ctaSub: 'Free early access · WhatsApp pe link',
+  badge: 'AI form filler · On your phone',
+  h1a: 'Filling a govt form takes',
+  h1strike: '2 hours',
+  h1b: 'now just',
+  h1accent: '5 minutes',
+  sub: 'SSC, Railway, Police, Banking — any government form. Build your profile once, and AI fills in the right values in one click. All on your phone, end-to-end encrypted.',
+  cta: 'Join the Waitlist',
+  ctaSub: 'Free early access · Link on WhatsApp',
   waitingCount: 'students already waiting',
 
   // ── Time compare ──
-  timeBefore: 'Bina Laksh',
-  timeBeforeNum: '2 ghante',
-  timeBeforeSub: 'Type karte raho… 😩',
-  timeAfter: 'Laksh ke saath',
-  timeAfterNum: '5 minute',
-  timeAfterSub: '1 click → AI fills ⚡',
+  timeBefore: 'Without Laksh',
+  timeBeforeNum: '2 hours',
+  timeBeforeSub: 'Typing forever… 😩',
+  timeAfter: 'With Laksh',
+  timeAfterNum: '5 minutes',
+  timeAfterSub: '1 click → AI fills it ⚡',
 
   // ── Trust strip ──
   trust: [
     { e: '🔒', t: 'End-to-end encrypted' },
-    { e: '📱', t: 'Phone pe optimized' },
+    { e: '📱', t: 'Built for your phone' },
     { e: '🇮🇳', t: 'Made for Indian exams' },
   ],
 
   // ── How it works ──
-  howTitle: 'Kaise kaam karta hai?',
-  howSub: 'Teen step. Bas.',
+  howTitle: 'How does it work?',
+  howSub: 'Three steps. That’s it.',
   steps: [
-    { n: '1', e: '📝', t: 'Profile ek baar banao', d: 'Naam, DOB, education, documents — ek baar bhar do. Bas.' },
-    { n: '2', e: '🌐', t: 'Koi bhi form kholo', d: 'SSC ho ya Railway — form Laksh app ke andar kholo.' },
-    { n: '3', e: '⚡', t: 'Ek click — AI bhar deta hai', d: 'AI har field pehchan ke sahi value bhar deta hai. Check karo, submit karo.' },
+    { n: '1', e: '📝', t: 'Build your profile once', d: 'Name, DOB, education, documents — fill them in once. Done.' },
+    { n: '2', e: '🌐', t: 'Open any form', d: 'SSC or Railway — open the form inside the Laksh app.' },
+    { n: '3', e: '⚡', t: 'One click — AI fills it', d: 'AI recognises each field and fills the right value. Review, then submit.' },
   ],
 
   // ── Problem ──
-  problemTitle: 'Yeh problem feel hoti hai?',
+  problemTitle: 'Do these sound familiar?',
   problems: [
-    { e: '😩', t: 'Har form mein wahi naam, address, DOB baar-baar type karna' },
-    { e: '😡', t: 'Ek chhota typo aur form reject — fir se shuru' },
-    { e: '📅', t: 'Notification late pata chala, last date nikal gayi' },
-    { e: '📄', t: 'Photo aur signature har baar resize karna padta hai' },
+    { e: '😩', t: 'Typing the same name, address and DOB into every single form' },
+    { e: '😡', t: 'One small typo and the form is rejected — start all over again' },
+    { e: '📅', t: 'Found out about the notification too late, missed the deadline' },
+    { e: '📄', t: 'Resizing your photo and signature every single time' },
   ],
 
   // ── Features ──
-  featuresTitle: 'Laksh kya deta hai',
+  featuresTitle: 'What Laksh gives you',
   features: [
-    { e: '🤖', t: 'AI auto-fill', d: 'Ek click karo, AI har field accurately bhar deta hai. Wahi naam, wahi DOB — har baar sahi.' },
-    { e: '🗂️', t: 'Document vault', d: 'Photo, signature, marksheet — sab encrypted, sahi size mein, ready to upload.' },
-    { e: '🔔', t: 'Exam alerts', d: 'Sirf tumhari exams ke liye. New form, last date, admit card — sab WhatsApp pe.' },
-    { e: '🔒', t: 'Encrypted & private', d: 'Tumhari profile tumhari hai. Sab kuch encrypted, bina permission koi nahi dekhta.' },
+    { e: '🤖', t: 'AI auto-fill', d: 'One click and AI fills every field accurately. Same name, same DOB — right every time.' },
+    { e: '🗂️', t: 'Document vault', d: 'Photo, signature, marksheet — all encrypted, correctly sized, ready to upload.' },
+    { e: '🔔', t: 'Exam alerts', d: 'Only for your exams. New form, last date, admit card — all on WhatsApp.' },
+    { e: '🔒', t: 'Encrypted & private', d: 'Your profile is yours. Everything encrypted, nobody sees it without your permission.' },
   ],
 
-  examsTitle: 'Tumhari exam ke liye banaya hai',
+  examsTitle: 'Built for your exam',
 
   // ── FAQ (trust / friction removers) ──
-  faqTitle: 'Sawaal jo sabke mann mein hain',
+  faqTitle: 'Questions everyone asks',
   faqs: [
-    { q: 'Kya yeh free hai?', a: 'Early access users ke liye bilkul free. Waitlist join karo, launch pe link milega.' },
-    { q: 'Mera data safe hai?', a: 'Haan. Sab kuch end-to-end encrypted. Tumhari permission ke bina koi field nahi bharta, koi data share nahi hota.' },
-    { q: 'Kaunse exams support karte ho?', a: 'SSC, Railway (RRB), Police, Banking (IBPS/SBI), Defence aur zyada. Naye forms add hote rehte hain.' },
-    { q: 'AI galat bhar de to?', a: 'AI fill karta hai, submit tum karte ho. Har field check kar sakte ho submit se pehle — full control tumhare paas.' },
+    { q: 'Is it free?', a: 'Completely free for early access users. Join the waitlist and you’ll get the link at launch.' },
+    { q: 'Is my data safe?', a: 'Yes. Everything is end-to-end encrypted. No field is filled without your permission, and no data is shared.' },
+    { q: 'Which exams do you support?', a: 'SSC, Railway (RRB), Police, Banking (IBPS/SBI), Defence and more. New forms are added regularly.' },
+    { q: 'What if the AI fills something wrong?', a: 'AI fills, you submit. You can review every field before submitting — you’re always in control.' },
   ],
 
-  finalCtaH: 'Form ka tension band karo.',
-  finalCtaSub: 'Waitlist join karo. Launch hote hi WhatsApp pe link bhej denge — no spam, kabhi nahi.',
+  finalCtaH: 'Stop stressing over forms.',
+  finalCtaSub: 'Join the waitlist. The moment we launch, we’ll send the link on WhatsApp — no spam, ever.',
 
-  footer: 'Made in India 🇮🇳 · Students ke liye, students ke saath',
+  footer: 'Made in India 🇮🇳 · For students, with students',
 };
