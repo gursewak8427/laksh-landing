@@ -7,6 +7,11 @@ mixpanel.init(TOKEN, {
   persistence: 'localStorage',
 });
 
+// Super properties auto-attached to every event
+try {
+  mixpanel.register({ platform: 'web', app: 'laksh_landing' });
+} catch (_) { /* ignore */ }
+
 // ── helpers ──────────────────────────────────────────────────────────────────
 
 export function trackPageViewed() {

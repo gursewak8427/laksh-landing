@@ -80,6 +80,11 @@ export function WaitlistModal({ open, onClose }) {
       trackWaitlistSubmitted(entry.name, entry.exam);
     }
 
+    // Meta Pixel — waitlist signup conversion
+    try {
+      window.fbq && window.fbq('track', 'Lead', { content_name: 'waitlist', content_category: entry.exam });
+    } catch (_) { /* ignore */ }
+
     setSubmitting(false);
     setStep('success');
   };
