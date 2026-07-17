@@ -52,15 +52,6 @@ export const Icons = {
     </svg>
   ),
   Logo: ({ s = 36 }) => (
-    <svg width={s} height={s} viewBox="0 0 40 40" fill="none">
-      <rect width="40" height="40" rx="11" fill="url(#lg)" />
-      <path d="M13 10v20h15v-5h-9V10z" fill="white" />
-      <defs>
-        <linearGradient id="lg" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#F26B1F" />
-          <stop offset="1" stopColor="#FF8C42" />
-        </linearGradient>
-      </defs>
-    </svg>
+    <img src="/logo.png" alt="Laksh" width={s} height={s} style={{ display: 'block', objectFit: 'contain' }} />
   ),
 };
