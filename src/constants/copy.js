@@ -52,6 +52,18 @@ export const COPY = {
     { e: '🔒', t: 'Encrypted & private', d: 'Your profile is yours. Everything encrypted, nobody sees it without your permission.' },
   ],
 
+  // ── Prepare (the other half: prep / roadmap) ──
+  prepEyebrow: 'After you apply',
+  prepTitle: 'Don’t just apply — prepare to win.',
+  prepSub: 'Applying is step one. Laksh then gives you a clear path to actually crack the exam — not just another pile of PDFs.',
+  prepItems: [
+    { e: '📚', t: 'Syllabus, decoded', d: 'The official syllabus broken into clear, bite-size topics. No more dense 80-page PDFs.' },
+    { e: '🗺️', t: 'Your prep roadmap', d: 'A day-by-day study plan built around your exam date and how much time you have.' },
+    { e: '🎯', t: 'Free study material', d: 'Curated notes, videos and resources for every topic — no paywalls, no scattering.' },
+    { e: '✍️', t: 'Practice & mock tests', d: 'Test yourself, track your progress, and know when you’re actually exam-ready.' },
+  ],
+  prepCta: 'Join the Waitlist',
+
   examsTitle: 'Built for your exam',
 
   // ── FAQ (trust / friction removers) ──

@@ -6,6 +6,7 @@ import { TrustStrip } from './components/TrustStrip';
 import { HowItWorks } from './components/HowItWorks';
 import { ProblemSection } from './components/ProblemSection';
 import { FeaturesSection } from './components/FeaturesSection';
+import { PrepareSection } from './components/PrepareSection';
 import { BusUseCase } from './components/BusUseCase';
 import { ExamsStrip } from './components/ExamsStrip';
 import { FAQ } from './components/FAQ';
@@ -84,6 +85,7 @@ function App() {
         <HowItWorks copy={COPY} />
         <ProblemSection copy={COPY} />
         <FeaturesSection copy={COPY} />
+        <PrepareSection copy={COPY} onCTA={() => open('prepare_section')} />
         <BusUseCase onCTA={() => open('bus_usecase')} />
         <ExamsStrip copy={COPY} />
         <FAQ copy={COPY} />
